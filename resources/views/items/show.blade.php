@@ -22,13 +22,19 @@
     </p>
 
     <p>
-        <b>出品者：{{ $item->seller }}</b> </p>
+        <b>出品者：{{ $item->seller }}</b>
+    </p>
 
     <p>
-        <b>電子メール：{{ $item->email }}</b> </p>
+        <b>電子メール：{{ $item->email }}</b>
+    </p>
 
     <p>
-        <img src="{{ $item->image_url }}"> </p>
+        <img src="{{ $item->image_url }}">
+    </p>
+
+
+    <a href="/items/{{ $item->id }}/edit">編集する</a>
 </body>
 
 </html>
