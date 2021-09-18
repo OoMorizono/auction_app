@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\ItemController@index');
 
 Route::resource('items', App\Http\Controllers\ItemController::class);
  // リソースを使用しない場合
