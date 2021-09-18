@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
     <title>Document</title>
 </head>
 
@@ -35,14 +36,16 @@
     </p>
 
 
-    {{-- <a href="/items/{{ $item->id }}/edit">編集する</a> --}}
-    <button type="button" onclick="location.href='/items/{{ $item->id }}/edit'">編集する</button>
-    <input type="submit" value="削除する" onclick="if(!confirm('本当に削除しますか?')){return false}" form="delete-form">
-    <form action="/items/{{ $item->id }}" method="post" id="delete-form">
-    @csrf
-    @method('DELETE')
+    <div class="button-group">
 
-    </form>
+        <!-- 商品のidを元に編集ページへ遷移する -->
+        <button onclick="location.href='/items/{{ $item->id }}/edit'">編集する</button>
+        <form action="/items/{{ $item->id }}" method="post">
+            @csrf
+            @method('DELETE')
+            <input type="submit" value="削除する" onclick="if(!confirm('削除しますか？')){return false};">
+        </form>
+    </div>
 </body>
 
 </html>

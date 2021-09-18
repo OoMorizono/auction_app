@@ -7,3 +7,9 @@ label{
 .error {
     color: red;
 }
+.button-group {
+    display: flex;
+}
+.button-group button {
+    margin-right: 10px;
+}
