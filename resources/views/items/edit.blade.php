@@ -11,33 +11,41 @@
 
 <body>
     <h1>商品更新フォーム</h1>
+    @if ($errors ->any())
+        <div class="error">
+            <p>
+                <b>{{ count($errors) }}件のエラーがあります</b>
+            </p>
+            <ul>
+                @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
     <form action="/items/{{ $item -> id }}" method="post">
         @csrf
         @method('PATCH')
         <p>
             <label for="name">商品名</label>
-            <input type="text" name="name" value="{{ $item->name }}">
-        </p>
+            <input type="text" name="name" value="{{ old('name', $item->name) }}"> </p>
         <p>
             <label for="description">商品詳細</label>
-            <input type="text" name="description" value="{{ $item->description }}">
-        </p>
+            <input type="text" name="description" value="{{ old('description', $item->description) }}"> </p>
         <p>
             <label for="price">価格</label>
-            <input type="number" name="price" value="{{ $item->price }}">
-        </p>
+            <input type="number" name="price" value="{{ old('price', $item->price) }}"> </p>
         <p>
             <label for="seller">出品者</label>
-            <input type="text" name="seller" value="{{ $item->seller }}">
-        </p>
+            <input type="text" name="seller" value="{{ old('seller', $item->seller) }}"> </p>
         <p>
             <label for="seller">電子メール</label>
-            <input type="text" name="email" value="{{ $item->email }}">
-        </p>
+            <input type="text" name="email" value="{{ old('email', $item->email) }}"> </p>
         <p>
             <label for="image_url">商品画像URL</label>
-            <input type="text" name="image_url" value="{{ $item->image_url }}">
+            <input type="text" name="image_url" value="{{ old('image_url', $item->image_url) }}">
         </p>
+
         <input type="submit" value="更新">
     </form>
 </body>

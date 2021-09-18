@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
-use Illuminate\Http\Request;
+use App\Http\Requests\ItemRequest;
 
 class ItemController extends Controller
 {
@@ -24,7 +24,7 @@ class ItemController extends Controller
         return view('items.create');
     }
 
-    public function store(Request $request)
+    public function store(ItemRequest $request)
     {
         // インスタンスの作成
         $item = new Item;
@@ -50,7 +50,7 @@ class ItemController extends Controller
         return view('items.edit', ['item' => $item]);
     }
 
-    public function update(Request $request, $id)
+    public function update(ItemRequest $request, $id)
     {
         $item = Item::find($id);
 
